@@ -13,4 +13,5 @@ config.font_size = 14.0
 config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
 config.native_macos_fullscreen_mode = true
+
 return config
