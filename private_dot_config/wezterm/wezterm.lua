@@ -7,7 +7,7 @@ wezterm.on("gui-startup", function(cmd)
 	window:gui_window():maximize()
 end)
 
-config.color_scheme = "Batman"
+config.color_scheme = "Builtin Dark"
 config.font = wezterm.font("JetBrains Mono")
 config.font_size = 14.0
 config.window_decorations = "RESIZE"
