@@ -13,8 +13,8 @@ return {
           dap.listeners.after.event_initialized["dapui_config"] = function()
             dapui.open({})
           end
-          setKeymap("n", "<leader>du", dapui.toggle(), "Toggle Debug UI")
-          setKeymap({ "n", "v" }, "<leader>de", dapui.eval(), "Eval")
+          setKeymap("n", "<leader>du", dapui.toggle, "Toggle Debug UI")
+          setKeymap({ "n", "v" }, "<leader>de", dapui.eval, "Eval")
         end,
       },
       {
