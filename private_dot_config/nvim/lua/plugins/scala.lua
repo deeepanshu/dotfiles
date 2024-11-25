@@ -7,6 +7,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "folke/noice.nvim",
       "MunifTanjim/nui.nvim",
+      "mfussenegger/nvim-dap",
     },
     ft = { "scala", "sbt", "java" },
     build = ":MetalsInstall",
