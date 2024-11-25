@@ -41,9 +41,9 @@ return {
         },
       }
 
-      setKeymap("n", "<leader>du", dapui.toggle(), "Toggle Debug UI")
-      setKeymap("n", "<leader>dt", dap.toggle_breakpoint(), "Toggle Breakpoint")
-      setKeymap("n", "<leader>dc", dap.continue(), "Continue Debugging")
+      setKeymap("n", "<leader>du", dapui.toggle, "Toggle Debug UI")
+      setKeymap("n", "<leader>dt", dap.toggle_breakpoint, "Toggle Breakpoint")
+      setKeymap("n", "<leader>dc", dap.continue, "Continue Debugging")
     end,
   },
 }
