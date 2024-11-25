@@ -20,9 +20,9 @@ return {
       dap.listeners.before.event_exited.dapui_config = function()
         dapui.close()
       end
-
-      vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, {})
-      vim.keymap.set("n", "<leader>dc", dap.continue, {})
+      setKeymap("n", "<leader>du", dapui.toggle(), "Toggle Debug UI")
+      setKeymap("n", "<leader>dt", dap.toggle_breakpoint(), "Toggle Breakpoint")
+      setKeymap("n", "<leader>dc", dap.continue(), "Continue Debugging")
     end,
   },
 }
