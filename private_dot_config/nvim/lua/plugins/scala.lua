@@ -4,36 +4,9 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
-			"hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp",
       "folke/noice.nvim",
-			"MunifTanjim/nui.nvim",
-      {
-        "mfussenegger/nvim-dap",
-        config = function(self, opts)
-          -- Debug settings if you're using nvim-dap
-          local dap = require("dap")
-
-          dap.configurations.scala = {
-            {
-              type = "scala",
-              request = "launch",
-              name = "RunOrTest",
-              metals = {
-                runType = "runOrTestFile",
-                --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
-              },
-            },
-            {
-              type = "scala",
-              request = "launch",
-              name = "Test Target",
-              metals = {
-                runType = "testTarget",
-              },
-            },
-          }
-        end,
-      },
+      "MunifTanjim/nui.nvim",
     },
     ft = { "scala", "sbt", "java" },
     build = ":MetalsInstall",
