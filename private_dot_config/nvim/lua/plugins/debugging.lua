@@ -2,8 +2,15 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      "rcarriga/nvim-dap-ui",
-      "nvim-neotest/nvim-nio",
+      {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+					"nvim-neotest/nvim-nio",
+				},
+        keys = {
+          {"n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", "Toggle Debug UI"},
+        },
+      },
     },
     config = function()
       local dap, dapui = require("dap"), require("dapui")
@@ -41,7 +48,7 @@ return {
         },
       }
 
-      setKeymap("n", "<leader>du", dapui.toggle, "Toggle Debug UI")
+      -- setKeymap("n", "<leader>du", dapui.toggle, "Toggle Debug UI")
       setKeymap("n", "<leader>dt", dap.toggle_breakpoint, "Toggle Breakpoint")
       setKeymap("n", "<leader>dc", dap.continue, "Continue Debugging")
     end,
