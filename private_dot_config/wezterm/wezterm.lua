@@ -7,7 +7,7 @@ wezterm.on("gui-startup", function(cmd)
 	window:gui_window():maximize()
 end)
 
-config.color_scheme = "AtomOneLight"
+config.color_scheme = "Monokai (light) (terminal.sexy)" -- "AtomOneLight"
 config.font = wezterm.font("JetBrains Mono")
 config.font_size = 14.0
 config.window_decorations = "RESIZE"
