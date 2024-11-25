@@ -7,7 +7,7 @@ wezterm.on("gui-startup", function(cmd)
 	window:gui_window():maximize()
 end)
 
-config.color_scheme = "Tokyo Night Light (Gogh)"--"Monokai (light) (terminal.sexy)" -- ""
+config.color_scheme = "Tokyo Night Light (Gogh)"
 
 config.font = wezterm.font("JetBrains Mono")
 config.font_size = 14.0
