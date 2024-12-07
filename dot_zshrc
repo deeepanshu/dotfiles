@@ -116,11 +116,12 @@ alias p="cd $HOME/Desktop/projects"
 alias c="code ."
 alias g="git"
 alias v="nvim"
-alias ez="v $HOME/.zshrc"
-alias en="v $HOME/.config/nvim"
-alias et="v $HOME/.config/tmux/tmux.conf"
-alias ew="v $HOME/.config/wezterm/wezterm.lua"
-alias cma="chezmoi add"
+alias cm="chezmoi"
+alias ez="cm edit $HOME/.zshrc"
+alias en="cm edit $HOME/.config/nvim"
+alias et="cm edit $HOME/.config/tmux/tmux.conf"
+alias ew="cm edit $HOME/.config/wezterm/wezterm.lua"
+alias cma="chezmoi apply -v"
 alias cmcd="chezmoi cd"
 alias cmu="chezmoi update"
 alias sz="source $HOME/.zshrc"
@@ -162,5 +163,3 @@ export EDITOR=nvim
 export VISUAL="$EDITOR"
 
 
-# Added by Windsurf
-export PATH="/Users/djain/.codeium/windsurf/bin:$PATH"
