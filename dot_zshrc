@@ -29,7 +29,7 @@ alias cat="bat"
 alias lg="lazygit"
 
 . "$HOME/.asdf/asdf.sh"
-# . ~/.asdf/plugins/java/set-java-home.zsh
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # Created by `pipx` on 2024-01-18 09:34:38
 #export PATH="$PATH:/Users/djain/.local/bin"
@@ -42,6 +42,7 @@ zstyle ':autocomplete:*' delay 2.5  # seconds (float)
 source <(fzf --zsh)
 
 eval "$(zoxide init zsh)"
+
 eval $(thefuck --alias f)
 
 export EDITOR=nvim
