@@ -24,7 +24,6 @@ return {
         },
       })
       vim.cmd("colorscheme catppuccin-macchiato")
-      print("executed catppuccin setup")
     end,
   },
 }
