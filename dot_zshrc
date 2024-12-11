@@ -27,6 +27,11 @@ alias ls="lsd"
 alias cd="z"
 alias cat="bat"
 alias lg="lazygit"
+alias mux="tmuxinator"
+alias muxl="tmuxinator list"
+alias muxs="tmuxinator start"
+alias muxt="tmuxinator stop"
+alias muxn="tmuxinator new"
 
 . "$HOME/.asdf/asdf.sh"
 . ~/.asdf/plugins/java/set-java-home.zsh

@@ -5,14 +5,21 @@ return {
       local auto_session = require("auto-session")
       auto_session.setup({
         auto_create = false,
-        auto_session_restore = false,
-        auto_session_supress_dirs = { "~/", "~/Desktop", "~/Downloads", "~/Documents", "~/Desktop/projects/" },
+        auto_save = true,
+        auto_restore = true,
+        lazy_support = true,
         use_git_branch = true,
+        show_auto_restore_notif = true,
+        auto_session_supress_dirs = { "~/", "~/Desktop", "~/Downloads", "~/Documents" },
         pre_save_cmds = {
           ":Neotree action=close",
         },
         post_restore_cmds = {
           ":Neotree action=show",
+        },
+        session_lens = {
+          load_on_setup = true,
+          previewer = true,
         },
       })
       setKeymap("n", "<leader>wf", "<cmd>SessionSearch<CR>", "Search Session")
