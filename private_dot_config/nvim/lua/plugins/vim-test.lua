@@ -1,16 +1,43 @@
 return {
+  -- {
+  --   "vim-test/vim-test",
+  --   dependencies = {
+  --     "preservim/vimux",
+  --   },
+  --   config = function()
+  --     setKeymap("n", "<leader>tn", "<cmd>TestNearest<CR>", "Test nearest")
+  --     setKeymap("n", "<leader>tf", "<cmd>TestFile<CR>", "Test File")
+  --     setKeymap("n", "<leader>ts", "<cmd>TestSuite<CR>", "Test All/Suite")
+  --     setKeymap("n", "<leader>tl", "<cmd>TestLast<CR>", "Test last")
+  --     setKeymap("n", "<leader>tv", "<cmd>TestVisit<CR>", "Test visit")
+  --     vim.cmd("let test#strategy = 'vimux'")
+  --   end,
+  -- },
   {
-    "vim-test/vim-test",
+    "nvim-neotest/neotest",
     dependencies = {
-      "preservim/vimux",
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-jest",
     },
     config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-jest")({
+            jestCommand = require("neotest-jest.jest-util").getJestCommand(vim.fn.expand("%:p:h")) .. " --watch",
+          }),
+        },
+        discovery = {
+          enabled = false,
+        },
+      })
+
       setKeymap("n", "<leader>tn", "<cmd>TestNearest<CR>", "Test nearest")
       setKeymap("n", "<leader>tf", "<cmd>TestFile<CR>", "Test File")
       setKeymap("n", "<leader>ts", "<cmd>TestSuite<CR>", "Test All/Suite")
       setKeymap("n", "<leader>tl", "<cmd>TestLast<CR>", "Test last")
       setKeymap("n", "<leader>tv", "<cmd>TestVisit<CR>", "Test visit")
-      vim.cmd("let test#strategy = 'vimux'")
     end,
   },
 }
