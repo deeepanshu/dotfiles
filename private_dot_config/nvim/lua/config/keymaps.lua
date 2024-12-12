@@ -12,5 +12,5 @@ setKeymap("n", "<leader>sv", "<C-w>v", "Split window vertically")
 setKeymap("n", "<leader>sh", "<C-w>s", "Split window horizontally")
 setKeymap("n", "<leader>se", "<C-w>=", "Make splits equal")
 setKeymap("n", "<leader>sx", "<cmd>close<CR>", "Close current split")
-
+setKeymap("n", "<leader>u", ":UndotreeToggle<cr>")
 setKeymap("n", "<leader>l", ":Lazy<CR>", "Open Lazy")

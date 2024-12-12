@@ -16,6 +16,7 @@ vim.cmd("set termguicolors")
 vim.g.mapleader = " "
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.inccommand = "split"
 vim.opt.autoindent = true
 vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
