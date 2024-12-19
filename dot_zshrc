@@ -36,6 +36,8 @@ alias muxn="tmuxinator new"
 . "$HOME/.asdf/asdf.sh"
 . ~/.asdf/plugins/java/set-java-home.zsh
 
+export PATH="$HOME/neovim/bin:$PATH"
+
 # Created by `pipx` on 2024-01-18 09:34:38
 #export PATH="$PATH:/Users/djain/.local/bin"
 #export PYENV_ROOT="$HOME/.pyenv"
@@ -57,4 +59,10 @@ export VISUAL="$EDITOR"
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof
 fi
-
+# pnpm
+export PNPM_HOME="/Users/djain/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

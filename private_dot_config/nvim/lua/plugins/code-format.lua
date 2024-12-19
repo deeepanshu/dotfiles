@@ -62,7 +62,7 @@ return {
         typescript = { "eslint_d" },
         reactjavascript = { "eslint_d" },
         reacttypescript = { "eslint_d" },
-        python = { "pylint" },
+        python = { "ruff" },
       }
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
