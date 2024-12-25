@@ -17,6 +17,9 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
+    keys = {
+      { "<leader>gt", function() require("CopilotChat").toggle() end, desc = "Toggle Copilot Chat" },
+    },
     dependencies = {
       "zbirenbaum/copilot.lua",
       "nvim-lua/plenary.nvim",
@@ -29,7 +32,6 @@ return {
           width = 0.3,
         },
       })
-      setKeymap("n", "<leader>gt", ":CopilotChatToggle<CR>", "Toggle Copilot Chat")
     end,
   },
 }
