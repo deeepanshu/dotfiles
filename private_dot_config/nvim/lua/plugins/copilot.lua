@@ -2,7 +2,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    event = "VimEnter",
+    very_lazy = true,
     config = function()
       require("copilot").setup({
         panel = {

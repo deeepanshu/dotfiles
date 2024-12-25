@@ -9,7 +9,18 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "graphql", "pyright", "ruff", "eslint_d" },
+        ensure_installed = {
+          "lua_ls",
+          "ts_ls",
+          "graphql",
+          "pyright",
+          "ruff",
+          "eslint-lsp",
+          "typescript-language-server",
+          "prettier",
+          "prettierd",
+          "jsonlint",
+        },
         automatic_installation = true,
       })
     end,
