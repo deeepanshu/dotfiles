@@ -1,5 +1,10 @@
 return {
   {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {},
+  },
+  {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
@@ -7,20 +12,27 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "WhoIsSethDaniel/mason-tool-installer.nvim"
+    },
     config = function()
+      local ensure_installed = {
+        "lua_ls",
+        "ts_ls",
+        "graphql",
+        "pyright",
+        "ruff",
+        "eslint-lsp",
+        "typescript-language-server",
+        "prettier",
+        "prettierd",
+        "jsonlint",
+      }
+      require('mason-tool-installer').setup {
+        ensure_installed = ensure_installed,
+      }
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-          "ts_ls",
-          "graphql",
-          "pyright",
-          "ruff",
-          "eslint-lsp",
-          "typescript-language-server",
-          "prettier",
-          "prettierd",
-          "jsonlint",
-        },
+        ensure_installed = ensure_installed,
         automatic_installation = true,
       })
     end,
@@ -29,10 +41,6 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-      {
-        "folke/lazydev.nvim",
-        opts = {},
-      },
       {
         "antosha417/nvim-lsp-file-operations",
         dependencies = { "nvim-lua/plenary.nvim" },
