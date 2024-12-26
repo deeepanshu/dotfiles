@@ -53,16 +53,12 @@ return {
           end,
         },
         window = {
-          -- completion = cmp.config.window.bordered(),
-          -- documentation = cmp.config.window.bordered(),
-          window = {
-            completion = cmp.config.window.bordered({
-              winhighlight = "Normal:Normal,FloatBorder:LspBorderBG,CursorLine:PmenuSel,Search:None",
-            }),
-            documentation = cmp.config.window.bordered({
-              winhighlight = "Normal:Normal,FloatBorder:LspBorderBG,CursorLine:PmenuSel,Search:None",
-            }),
-          },
+          completion = cmp.config.window.bordered({
+            winhighlight = "Normal:Normal,FloatBorder:LspBorderBG,CursorLine:PmenuSel,Search:None",
+          }),
+          documentation = cmp.config.window.bordered({
+            winhighlight = "Normal:Normal,FloatBorder:LspBorderBG,CursorLine:PmenuSel,Search:None",
+          }),
         },
         view = {
           entries = "bordered",

@@ -19,14 +19,6 @@ return {
           indicator = {
             style = "underline",
           },
-          offsets = {
-            {
-              filetype = "neo-tree",
-              text = "File Explorer",
-              highlight = "Directory",
-              text_align = "left",
-            },
-          },
         },
       })
       setKeymap("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", "Toggle pin")
