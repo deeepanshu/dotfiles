@@ -13,6 +13,8 @@ return {
           right_mouse_command = function(n)
             require("mini.bufremove").delete(n, false)
           end,
+          show_buffer_close_icons = false,
+          show_close_icon = false,
           diagnostics = "nvim_lsp",
           indicator = {
             style = "underline",
@@ -32,8 +34,6 @@ return {
       setKeymap("n", "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", "Delete other buffers")
       setKeymap("n", "<leader>br", "<Cmd>BufferLineCloseRight<CR>", "Delete buffers to the right")
       setKeymap("n", "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", "Delete buffers to the left")
-      setKeymap("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", "Prev buffer")
-      setKeymap("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", "Next buffer")
       setKeymap("n", "[b", "<cmd>BufferLineCyclePrev<cr>", "Prev buffer")
       setKeymap("n", "]b", "<cmd>BufferLineCycleNext<cr>", "Next buffer")
       vim.api.nvim_create_autocmd("BufAdd", {

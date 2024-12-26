@@ -1,6 +1,7 @@
 return {
   {
     "meznaric/key-analyzer.nvim",
+    cmd = "KeyAnalyzer",
     config = function()
       local analyzer = require("key-analyzer")
       analyzer.setup({
@@ -27,6 +28,7 @@ return {
       spec = {
         {
           mode = { "n", "v" },
+          { "<leader>d", group = "Tests" },
           { "<leader>t", group = "Tests" },
           { "<leader>b", group = "Buffers" },
           { "<leader>c", group = "code" },

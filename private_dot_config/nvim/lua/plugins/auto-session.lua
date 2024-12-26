@@ -10,8 +10,8 @@ return {
         lazy_support = true,
         use_git_branch = true,
         show_auto_restore_notif = true,
-        auto_session_supress_dirs = { "~/", "~/Desktop", "~/Downloads", "~/Documents" },
         auto_restore_last_session = true,
+        allowed_dirs = {"~/.config/", "~/Desktop/projects/"},
         session_lens = {
           load_on_setup = true,
           previewer = true,

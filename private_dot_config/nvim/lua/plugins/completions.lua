@@ -35,7 +35,7 @@ return {
       local luasnip = require("luasnip")
       require("luasnip.loaders.from_vscode").lazy_load()
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-
+      vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
       local has_words_before = function()
         if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
           return false
@@ -45,7 +45,7 @@ return {
       end
       cmp.setup({
         completion = {
-          completeopt = "menu,menuone,preview,noselect,noinsert",
+          completeopt = "menu,menuone,noselect",
         },
         snippet = {
           expand = function(args)
@@ -94,7 +94,7 @@ return {
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
-          { name = "lazydev" },
+          { name = "lazydev", group_index = 0 },
         }),
         formatting = {
           format = lspkind.cmp_format({
@@ -148,7 +148,6 @@ return {
           },
         },
       })
-      vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
     end,
   },
 }

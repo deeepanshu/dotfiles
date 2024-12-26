@@ -75,7 +75,7 @@ return {
           fzf = {
             fuzzy = true,
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
+            override_file_sorter = true,    -- override the file sorter
             case_mode = "smart_case",
           },
         },
@@ -119,7 +119,7 @@ return {
       delay = 200,
       large_file_cutoff = 2000,
       large_file_overrides = {
-        providers = { "lsp" },
+        providers = { "lsp", "treesitter" },
       },
     },
     config = function(_, opts)

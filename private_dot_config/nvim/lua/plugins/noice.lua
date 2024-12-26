@@ -103,10 +103,6 @@ return {
     end,
   },
   {
-    "stevearc/dressing.nvim",
-    event = "VeryLazy",
-  },
-  {
     "smjonas/inc-rename.nvim",
     opts = {
       input_buffer_type = "noice",
