@@ -87,7 +87,7 @@ return {
           typescript = { "prettierd", "prettier", stop_after_first = true },
           reactjavascript = { "prettierd", "prettier", stop_after_first = true },
           reacttypescript = { "prettierd", "prettier", stop_after_first = true },
-          python = { "isort", "black", stop_after_first = true },
+          python = { "ruff_fix", "ruff_format", "ruff_organise_imports", stop_after_first = true },
         },
         format_on_save = {
           lsp_fallback = true,

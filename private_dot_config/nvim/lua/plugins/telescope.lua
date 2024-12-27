@@ -24,7 +24,7 @@ return {
         defaults = {
           path_display = { "smart" },
           layout_strategy = "vertical",
-          file_ignore_patterns = { "node_modules", ".yarn" },
+          file_ignore_patterns = { "node_modules", ".yarn", "__pycache__" },
           mappings = {
             i = {
               ["<C-k>"] = actions.move_selection_previous,
