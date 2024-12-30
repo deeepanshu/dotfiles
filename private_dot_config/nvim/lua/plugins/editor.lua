@@ -60,10 +60,10 @@ return {
   {
     "tpope/vim-fugitive",
     keys = {
-      { "<leader>gb", "<cmd>Git blame<cr>", desc = "blame" },
-      { "<leader>gs", "<cmd>Git st<cr>", desc = "status" },
-      { "<leader>gca", "<cmd>Git ca<cr>", desc = "commit -a" },
-      { "<leader>gl", "<cmd>Git log<cr>", desc = "log" },
+      { "<leader>gb",  "<cmd>Git blame<cr>", desc = "blame" },
+      { "<leader>gs",  "<cmd>Git st<cr>",    desc = "status" },
+      { "<leader>gca", "<cmd>Git ca<cr>",    desc = "commit -a" },
+      { "<leader>gl",  "<cmd>Git log<cr>",   desc = "log" },
     },
   },
   -- Link to Gitlab

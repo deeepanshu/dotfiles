@@ -36,7 +36,10 @@ return {
           },
         },
         config = function() end,
-      }
+      },
+      -- {
+      --   'mfussenegger/nvim-dap-python'
+      -- }
     },
     keys = {
       { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
@@ -74,6 +77,59 @@ return {
       dap.listeners.before.event_exited.dapui_config = function()
         dapui.close()
       end
+
+      dap.adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = { os.getenv("HOME") .. "/.config/js-debug/src/dapDebugServer.js", "${port}" },
+        }
+      }
+      dap.configurations.javascript = {
+        {
+          type = "pwa-node",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+        },
+      }
+
+      dap.adapters.chrome = {
+        type = "executable",
+        command = "node",
+        args = { os.getenv("HOME") .. "/.config/js-debug/src/dapDebugServer.js", "${port}" }
+      }
+
+      dap.configurations.javascriptreact = {
+        {
+          name = "JS React Chrome Launch",
+          type = "chrome",
+          request = "attach",
+          program = "${file}",
+          cwd = vim.fn.getcwd(),
+          sourceMaps = true,
+          protocol = "inspector",
+          port = 9222,
+          webRoot = "${workspaceFolder}"
+        }
+      }
+
+      dap.configurations.typescriptreact = {
+        {
+          name = "TS React Chrome Launch",
+          type = "chrome",
+          request = "attach",
+          program = "${file}",
+          cwd = vim.fn.getcwd(),
+          sourceMaps = true,
+          protocol = "inspector",
+          port = 9222,
+          webRoot = "${workspaceFolder}"
+        }
+      }
     end,
   },
 }

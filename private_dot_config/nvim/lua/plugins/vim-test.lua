@@ -4,6 +4,13 @@ return {
     dependencies = {
       "preservim/vimux",
     },
+    keys = {
+      { "n", "<leader>tn" },
+      { "n", "<leader>tf" },
+      { "n", "<leader>ts" },
+      { "n", "<leader>tl" },
+      { "n", "<leader>tv" },
+    },
     config = function()
       setKeymap("n", "<leader>tn", "<cmd>TestNearest<CR>", "Test nearest")
       setKeymap("n", "<leader>tf", "<cmd>TestFile<CR>", "Test File")

@@ -1,4 +1,17 @@
 return {
+  { 'kevinhwang91/promise-async' },
+  {
+    'kevinhwang91/nvim-ufo',
+    depedencies = 'kevinhwang91/promise-async',
+    config = function()
+      vim.o.foldcolumn = '0' -- '0' is not bad
+      vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+      setKeymap('n', 'zR', require('ufo').openAllFolds, "Open all folds")
+      setKeymap('n', 'zM', require('ufo').closeAllFolds, "Close all folds")
+    end
+  },
   {
     "folke/lazydev.nvim",
     ft = "lua",
@@ -22,11 +35,10 @@ return {
         "graphql",
         "pyright",
         "ruff",
-        "eslint-lsp",
-        "typescript-language-server",
-        "prettier",
-        "prettierd",
-        "jsonlint",
+        "eslint",
+        "jsonls",
+        "csharp_ls",
+        "bashls",
       }
       require('mason-tool-installer').setup {
         ensure_installed = ensure_installed,
@@ -75,6 +87,10 @@ return {
       })
 
       local capabilities = cpm_nvim_lsp.default_capabilities()
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
       local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
@@ -102,6 +118,11 @@ return {
             },
           })
         end,
+      })
+      require("ufo").setup({
+        provider_selector = function(bufnr, filetype, buftype)
+          return { 'lsp', 'indent' }
+        end
       })
     end,
   },
