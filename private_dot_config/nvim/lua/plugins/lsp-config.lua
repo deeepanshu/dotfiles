@@ -2,7 +2,7 @@ return {
   { 'kevinhwang91/promise-async' },
   {
     'kevinhwang91/nvim-ufo',
-    depedencies = 'kevinhwang91/promise-async',
+    dependencies = 'kevinhwang91/promise-async',
     config = function()
       vim.o.foldcolumn = '0'
       vim.o.foldlevel = 99
@@ -102,6 +102,20 @@ return {
           lspconfig[server_name].setup({
             capabilities = capabilities,
           })
+        end,
+        ["pyright"] = function()
+          lspconfig["pyright"].setup {
+            capabilities = capabilities,
+            settings = {
+              python = {
+                analysis = {
+                  typeCheckingMode = "basic",
+                  autoImportCompletions = true,
+                  useLibraryCodeForTypes = true,
+                }
+              }
+            }
+          }
         end,
         ["lua_ls"] = function()
           lspconfig["lua_ls"].setup({

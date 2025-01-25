@@ -1,13 +1,11 @@
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zmodload zsh/zprof
 fi
-
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 zstyle ':omz:update' frequency 14
 plugins=(git zsh-autosuggestions pyenv-lazy zsh-autocomplete) 
 source $ZSH/oh-my-zsh.sh
-
 # custom aliases
 alias p="cd $HOME/Desktop/projects"
 alias c="code ."
@@ -25,15 +23,26 @@ alias st="tmux source-file $HOME/.config/tmux/tmux.conf"
 alias ls="lsd"
 alias cd="z"
 alias cat="bat"
+LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
 alias lg="lazygit"
 alias mux="tmuxinator"
 alias muxl="tmuxinator list"
 alias muxs="tmuxinator start"
 alias muxt="tmuxinator stop"
 alias muxn="tmuxinator new"
+alias pyfrz="python3 -m pip freeze > requirements.txt"
+pyi() {
+    if [ -z "$1" ]; then
+        echo "Please provide a package name."
+        return 1
+    fi
+    python3 -m pip install "$1" && python3 -m pip freeze | grep "$1" >> requirements.txt
+}
 pya() {
     source "$(pwd)/venv/bin/activate"
 }
+
+
    
 . "$HOME/.asdf/asdf.sh"
 . ~/.asdf/plugins/java/set-java-home.zsh
@@ -43,9 +52,9 @@ pya() {
 zstyle ':autocomplete:*' delay 2.5  # seconds (float)
 
 source <(fzf --zsh)
-
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(zoxide init zsh)"
-
 eval $(thefuck --alias f)
 
 export EDITOR=nvim
@@ -58,6 +67,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+
+
+# PROMPT=$'\n'$PROMPT
 
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof
