@@ -39,7 +39,7 @@ pyi() {
     python3 -m pip install "$1" && python3 -m pip freeze | grep "$1" >> requirements.txt
 }
 pya() {
-    source "$(pwd)/venv/bin/activate"
+    source "$(pwd)/.venv/bin/activate"
 }
 
 
@@ -68,9 +68,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+source <(COMPLETE=zsh tms)
 
-
-# PROMPT=$'\n'$PROMPT
 
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof
