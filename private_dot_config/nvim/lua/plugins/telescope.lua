@@ -2,7 +2,7 @@ return {
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         lazy = true,
-        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+        build = "make",
     },
     {
         "nvim-telescope/telescope.nvim",
@@ -44,8 +44,10 @@ return {
                         mappings = {
                             i = {
                                 ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
-                                ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix =
-                                " --iglob " }),
+                                ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({
+                                    postfix =
+                                    " --iglob "
+                                }),
                             },
                         },
                     },
@@ -76,7 +78,7 @@ return {
                     fzf = {
                         fuzzy = true,
                         override_generic_sorter = true, -- override the generic sorter
-                        override_file_sorter = true, -- override the file sorter
+                        override_file_sorter = true,    -- override the file sorter
                         case_mode = "smart_case",
                     },
                 },

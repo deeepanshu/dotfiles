@@ -9,15 +9,14 @@ if ! command -v brew &> /dev/null
 then
     echo "Homebrew not found, installing..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    PATH=$PATH:/opt/homebrew/bin
+    export PATH=$PATH:/opt/homebrew/bin
 fi
 
-# Install tmux
-echo "Installing tmux..."
-brew install tmux
 
-# Install tmuxinator
-echo "Installing tmuxinator..."
-brew install tmuxinator
+# Installing cli tools
+echo "Installing cli tools"
+brew install bat lsd zoxide chezmoi lazygit asdf neovim tmux tmuxinator
 
 # Install TPM (Tmux Plugin Manager)
 echo "Installing TPM (Tmux Plugin Manager)..."
@@ -32,40 +31,31 @@ brew install --cask wezterm
 echo "Installing Postman..."
 brew install --cask postman
 
-# Install Neovim
-echo "Installing Neovim..."
-brew install neovim
 
 # Install Oh My Zsh
 echo "Installing Oh My Zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+echo "ZSH CUSTOM PATH: $ZSH_CUSTOM"
+if [ -z "$ZSH_CUSTOM" ]; then 
+    ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+fi
 
-# Install bat
-echo "Installing bat..."
-brew install bat
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+git clone https://github.com/davidparsson/zsh-pyenv-lazy.git $ZSH_CUSTOM/plugins/pyenv-lazy
 
-# Install lsd
-echo "Installing lsd..."
-brew install lsd
-
-# Install zoxide
-echo "Installing zoxide..."
-brew install zoxide
-
-# Install chezmoi
-echo "Installing chezmoi..."
-brew install chezmoi
 
 # Install fzf
 echo "Installing fzf..."
-brew install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
-# Install lazygit
-echo "Installing lazygit..."
-brew install lazygit
 
-echo "Installing asdf..."
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+echo "Installing starship..."
+brew install starship
+
+echo "Installing ghostty"
+brew install --cask ghostty
 
 # Install asdf plugin for zulujdk
 echo "Installing asdf plugin for zulujdk..."
