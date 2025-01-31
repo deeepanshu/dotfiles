@@ -16,7 +16,7 @@ fi
 
 # Installing cli tools
 echo "Installing cli tools"
-brew install bat lsd zoxide chezmoi lazygit asdf neovim tmux tmuxinator
+brew install bat lsd zoxide chezmoi lazygit asdf neovim tmux tmuxinator tmux-sessionizer
 
 # Install TPM (Tmux Plugin Manager)
 echo "Installing TPM (Tmux Plugin Manager)..."
