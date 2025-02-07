@@ -44,10 +44,6 @@ pya() {
 }
 
 
-   
-. "$HOME/.asdf/asdf.sh"
-. ~/.asdf/plugins/java/set-java-home.zsh
-
 zstyle ':autocomplete:*' delay 2.5  # seconds (float)
 
 source <(fzf --zsh)
@@ -67,9 +63,10 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-source <(COMPLETE=zsh tms)
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+. ~/.asdf/plugins/java/set-java-home.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof
 fi
