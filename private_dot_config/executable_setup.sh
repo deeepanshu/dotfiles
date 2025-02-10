@@ -16,16 +16,11 @@ fi
 
 # Installing cli tools
 echo "Installing cli tools"
-brew install bat lsd zoxide chezmoi lazygit asdf neovim tmux tmuxinator tmux-sessionizer
+brew install bat lsd zoxide chezmoi lazygit asdf neovim tmux tmuxinator tmux-sessionizer ripgrep
 
 # Install TPM (Tmux Plugin Manager)
 echo "Installing TPM (Tmux Plugin Manager)..."
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-
-# Install WezTerm
-echo "Installing WezTerm..."
-brew tap wez/wezterm
-brew install --cask wezterm
 
 # Install Postman
 echo "Installing Postman..."
