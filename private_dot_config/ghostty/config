@@ -1,5 +1,5 @@
 font-size = 15
-theme = catppuccin-frappe
+theme = tokyonight_night
 cursor-style = block
 title = ""
 quit-after-last-window-closed = true
