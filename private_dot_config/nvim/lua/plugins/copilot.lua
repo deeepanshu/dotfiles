@@ -19,20 +19,16 @@ return {
     event = "VeryLazy",
     version = false,
     opts = {
-      provider = "openai",
-      claude = {
-        endpoint = "https://openai-proxy.agoda.is/v1",
-        model = "claude-3-5-sonnet-20241022",
-        timeout = 30000,
-        temperature = 0,
-        max_tokens = 4096,
-      },
-      openai = {
-        endpoint = "https://openai-proxy.agoda.is/v1",
-        model = "gpt-4o",
-        timeout = 30000,
-        temperature = 0,
-        max_tokens = 4096,
+      providers = {
+        openai = {
+          endpoint = "https://openai-proxy.agoda.is/v1",
+          model = "gpt-4o",
+          timeout = 30000,
+          max_tokens = 4096,
+          extra_request_body = {
+            temperature = 0,
+          },
+        },
       },
     },
     build = "make",
@@ -47,20 +43,6 @@ return {
       "ibhagwan/fzf-lua",
       "nvim-tree/nvim-web-devicons",
       "zbirenbaum/copilot.lua",
-      {
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            use_absolute_path = true,
-          },
-        },
-      },
     },
   },
   -- {
