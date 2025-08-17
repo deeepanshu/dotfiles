@@ -1,6 +1,9 @@
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zmodload zsh/zprof
 fi
+
+[ -f "$HOME/.zshrc.functions" ] && source "$HOME/.zshrc.functions"
+
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=/opt/homebrew/bin:$PATH
 ZSH_THEME="robbyrussell"
@@ -73,3 +76,5 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof
 fi
+export PATH="$HOME/.local/bin:$PATH"
+
